@@ -1,19 +1,36 @@
 # Appointment Booking System
 This is a C# appointment booking system with features like user registration, role-based approval, appointment scheduling and password reset via email.
 
-To run the project, press Ctrl + F5. To stop or build the project, press Ctrl + Shift + B.
+---
 
-Make sure your database connection details are same in both Web.config under <connectionStrings> and Models/DatabaseHelper.cs. 
-Update them to match your MySQL server settings. 
-Example connection string: 
-<connectionStrings>
-    <add name="MySqlConnection" connectionString="Server=127.0.0.1;Database=appointment_db;Uid=root;Pwd=;" providerName="MySql.Data.MySqlClient" />
-</connectionStrings>
+## ▶️ Running the Project
+- **Run without debugging**: Press `Ctrl + F5`
+- **Stop/Build**: Press `Ctrl + Shift + B`
 
-To enable MySQL connectivity, go to Tools > NuGet Package Manager > Package Manager Console and run: Install-Package MySql.Data
+---
 
-To use the Reset Password feature, before running the project, update the SendEmail method in Controllers/AccountController.cs (line 322 to 333) with your own Gmail credentials.
+## ⚙️ Configuration
+### 1. Database Connection
+- Ensure connection details are the same in:
+  - `Web.config` under `<connectionStrings>`
+  - `Models/DatabaseHelper.cs`
+- Update them to match your MySQL server settings.
+ 
+### 2. Enable MySQL connectivity
+- Go to Tools > NuGet Package Manager > Package Manager Console
+- run: Install-Package MySql.Data
 
-Features include: role-based registration (Requester auto-approved, Approver pending unless first), appointment scheduling with date/time validation, password reset via email OTP, and automatic creation of database and tables if missing.
+### 3. Use the Reset Password feature
+- Before running the project, update the SendEmail function in Controllers/AccountController.cs (line 322 to 333) with your own Gmail credentials.
 
-Testers should ensure MySQL server is running, connection strings are correct, and email credentials are configured before using the system.
+**Ensure MySQL server is running, connection strings are correct and email credentials are configured well before using the system.**
+
+---
+
+## ⚙️ Feature
+### 1. Role-based registration (Requester auto-approved, Approver pending unless first)
+### 2. Appointment scheduling with date/time validation
+### 3. Password reset via email OTP
+### 4. Automatic creation of database and tables if missing
+
+
