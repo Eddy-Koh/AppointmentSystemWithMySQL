@@ -1,0 +1,23 @@
+﻿@{ ViewBag.Title = "Home"; }
+
+<div class="container mt-4">
+    <h2>Home</h2>
+
+    <p class="lead">@ViewBag.Message</p>
+
+    @if (Session["Username"] == null)
+    {
+        <a class="btn btn-primary" href="@Url.Action("Login", "Account")">Login</a>
+        <a class="btn btn-secondary" href="@Url.Action("Register", "Account")">Register</a>
+    }
+    else
+    {
+        if (Session["Role"]?.ToString() == "Approver")
+        {
+            <a class="btn btn-success mr-2" href="@Url.Action("Index", "Appointment")">Manage Appointments</a>
+            <a class="btn btn-info" href="@Url.Action("UserList", "User")">Manage Registration</a>
+        }
+        else
+        { <a class="btn btn-success" href="@Url.Action("Index", "Appointment")">Go to Appointments</a>}
+    }
+</div>

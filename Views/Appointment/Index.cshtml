@@ -1,0 +1,72 @@
+﻿@model List<AppointmentBookingSystem.Models.Appointment>
+
+@{ ViewBag.Title = "Appointments"; }
+
+<div class="container mt-4">
+    <h2 class="mb-3">Appointments</h2>
+
+    @if (!Model.Any())
+    {<div class="alert alert-info">No appointments found.</div>}
+
+    @if (Session["Role"]?.ToString() == "Requester")
+    {<a class="btn btn-primary mb-3" href="@Url.Action("Create")">Create New Appointment</a>}
+
+    <table class="table table-bordered table-striped table-fixed">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Reason</th>
+                <th>Status</th>
+                <th class="fixed-action-column">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.RequesterName</td>
+                    <td>@item.AppointmentDate.ToString("yyyy-MM-dd")</td>
+                    <td>@item.StartTime.ToString(@"hh\:mm") - @item.EndTime.ToString(@"hh\:mm")</td>
+                    <td>@item.Reason</td>
+                    <td>@item.Status</td>
+                    <td class="fixed-action-column">
+                        @{ bool hasAction = false; }
+
+                        @* Requester can edit/delete only if status is Pending *@
+                        @if (Session["Role"]?.ToString() == "Requester")
+                        {
+                            if (item.Status == "Pending")
+                            {
+                                hasAction = true;
+                                <a class="btn btn-sm btn-warning" href="@Url.Action("Edit", new { id = item.Id })">Edit</a>
+                                <a class="btn btn-sm btn-danger" href="@Url.Action("Delete", new { id = item.Id })">Delete</a>
+                            }
+                            else if (item.Status == "Rejected")
+                            {
+                                @* Requester can delete only if status is Rejected *@
+                                hasAction = true;
+                                <a class="btn btn-sm btn-danger" href="@Url.Action("Delete", new { id = item.Id })">Delete</a>
+                            }
+                        }
+
+                        @* Approver can approve/reject only if status is Pending *@
+                        @if (Session["Role"]?.ToString() == "Approver" && item.Status == "Pending")
+                        {
+                            hasAction = true;
+                            <a class="btn btn-sm btn-success" href="@Url.Action("Approve", new { id = item.Id })">Approve</a>
+                            <a class="btn btn-sm btn-secondary" href="@Url.Action("Reject", new { id = item.Id })">Reject</a>
+                        }
+
+                        @* Show only if no actions were rendered *@
+                        @if (!hasAction)
+                        {<span class="text-muted">No action</span>}
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

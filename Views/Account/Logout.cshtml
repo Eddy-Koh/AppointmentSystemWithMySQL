@@ -1,0 +1,11 @@
+﻿@{ ViewBag.Title = "Logout"; }
+
+<div class="container mt-4">
+    <h2>Are you sure you want to log out?</h2>
+
+    <form action="@Url.Action("ConfirmLogout", "Account")" method="post" class="mt-3">
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn btn-danger">Yes, Log Out</button>
+        <a href="@Url.Action("Index", "Home")" class="btn btn-secondary ml-2">Cancel</a>
+    </form>
+</div>

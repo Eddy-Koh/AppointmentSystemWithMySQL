@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Appointment Booking System</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")">Appointment System</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    @if (Session["Username"] == null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Login", "Account")">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Register", "Account")">Register</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Appointment")">Appointments</a>
+                        </li>
+                        if (Session["Role"]?.ToString() == "Approver")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("UserList", "User")">Registration</a>
+                            </li>
+
+                        }
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Logout", "Account")">Logout</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content" style="padding-top: 70px;">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Appointment Booking System - Just a simple testing system</p>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

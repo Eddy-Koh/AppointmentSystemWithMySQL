@@ -1,0 +1,47 @@
+﻿@model List<AppointmentBookingSystem.Models.User>
+
+@{ ViewBag.Title = "User Registration Management"; }
+
+<div class="container mt-4">
+    <h2>User Registration Management</h2>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Name</th>
+                <th>Mobile No.</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.Username</td>
+                    <td>@user.MobilePhone</td>
+                    <td>@user.Email</td>
+                    <td>@user.Role</td>
+                    <td>
+                        @if (user.Role == "Approver")
+                        {@user.ApprovalStatus }
+                    else
+                    { <span class="text-muted">N/A</span>}
+                    </td>
+                    <td>
+                        @if (user.Role == "Approver" && user.ApprovalStatus == "Pending")
+                        {
+                            <a class="btn btn-sm btn-success" href="@Url.Action("ApproveUser", "User", new { username = user.Username })">Accept</a>
+                            <a class="btn btn-sm btn-danger" href="@Url.Action("RejectUser", "User", new { username = user.Username })">Reject</a>
+                        }
+                        else
+                        { <span class="text-muted">No action</span>}
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
