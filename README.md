@@ -63,14 +63,14 @@ Appointment
 - The system will self-create database (appointment_db) and tables (users and appointments) when run the system.
 
 ### 6. URL accessibility
-https://localhost:44334/ - All accessible
-https://localhost:44334/Account/Login - Only accessible for unlogin user
-https://localhost:44334/Account/Register - Only accessible for unlogin user
-https://localhost:44334/Account/ResetPassword - Only accessible for unlogin user
-https://localhost:44334/Account/Logout - Only accessible for login user
-https://localhost:44334/Appointment - Only accessible for login user. View for approver and requester is different.
-https://localhost:44334/Appointment/Create - Only accessible for requester.
-https://localhost:44334/Appointment/Edit/:id - Only accessible for requester (Booking Owner).
-https://localhost:44334/User/UserList - Only accessible for approver.
+- https://localhost:44334/ - All accessible
+- https://localhost:44334/Account/Login - Only accessible for unlogin user
+- https://localhost:44334/Account/Register - Only accessible for unlogin user
+- https://localhost:44334/Account/ResetPassword - Only accessible for unlogin user
+- https://localhost:44334/Account/Logout - Only accessible for login user
+- https://localhost:44334/Appointment - Only accessible for login user. View for approver and requester is different.
+- https://localhost:44334/Appointment/Create - Only accessible for requester.
+- https://localhost:44334/Appointment/Edit/:id - Only accessible for requester (Booking Owner).
+- https://localhost:44334/User/UserList - Only accessible for approver.
 
 
