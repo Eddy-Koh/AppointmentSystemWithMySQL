@@ -5,6 +5,7 @@ The system contain 2 types of user - Approver and Requester. Each user has its o
 ---
 
 ## ▶️ Running the Project
+- **Debug**: Press `F5`
 - **Run without debugging**: Press `Ctrl + F5`
 - **Stop/Build**: Press `Ctrl + Shift + B`
 
@@ -15,7 +16,7 @@ The system contain 2 types of user - Approver and Requester. Each user has its o
 - Ensure connection details are the same in:
   - `Web.config` under `<connectionStrings>`
   - `Models/DatabaseHelper.cs`
-- Update them to match your MySQL server settings.
+- Update them to match own MySQL server settings.
  
 ### 2. Enable MySQL connectivity
 - Go to `Tools` > `NuGet Package Manager` > `Package Manager Console`
