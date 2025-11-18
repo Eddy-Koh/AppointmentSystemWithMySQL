@@ -1,6 +1,6 @@
 # Appointment Booking System
 This is a C# appointment booking system with features like user registration, role-based approval, appointment scheduling and password reset via email.
-The system contain 2 types of user - Approver and Requester, Each user has its own accessibility as described in Section `Features`.
+The system contain 2 types of user - Approver and Requester. Each user has its own accessibility as described in Section `Features`.
 
 ---
 
@@ -60,5 +60,17 @@ Appointment
 
 ### 5. Automatic creation of database and tables if missing
 - Do not need to create database and tables manually.
-- The system will self-create database (appointment_db) and tables (users and appointments).
+- The system will self-create database (appointment_db) and tables (users and appointments) when run the system.
+
+### 6. URL accessibility
+https://localhost:44334/ - All accessible
+https://localhost:44334/Account/Login - Only accessible for unlogin user
+https://localhost:44334/Account/Register - Only accessible for unlogin user
+https://localhost:44334/Account/ResetPassword - Only accessible for unlogin user
+https://localhost:44334/Account/Logout - Only accessible for login user
+https://localhost:44334/Appointment - Only accessible for login user. View for approver and requester is different.
+https://localhost:44334/Appointment/Create - Only accessible for requester.
+https://localhost:44334/Appointment/Edit/:id - Only accessible for requester (Booking Owner).
+https://localhost:44334/User/UserList - Only accessible for approver.
+
 
