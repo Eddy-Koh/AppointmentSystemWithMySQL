@@ -4,6 +4,16 @@ The system contain 2 types of user - Approver and Requester. Each user has its o
 
 ---
 
+## ▶️ Step by Step on How to Clone Project and Use the System
+- Step 1: Open VS Community and click `Clone Repository` at right side.
+- Step 2: Copy `https://github.com/Eddy-Koh/AppointmentSystemWithMySQL.git` and select the empty folder that want to clone.
+- Step 3: Double click the .sln file in solution explorer at right side.
+- Step 4: Go to `Tools` > `NuGet Package Manager` > `Package Manager Console`, run `Install-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform` and `Install-Package MySql.Data`. 
+- Step 5: Press `Ctrl + Shift + B` to build the solution and `F5` to run the system.
+**Check for the `Configuration` that stated below before run the system.**
+  
+---
+
 ## ▶️ Running the Project
 - **Debug**: Press `F5`
 - **Run without debugging**: Press `Ctrl + F5`
@@ -74,4 +84,7 @@ Appointment
 - https://localhost:44334/Appointment/Edit/:id - Only accessible for requester (Booking Owner).
 - https://localhost:44334/User/UserList - Only accessible for approver.
 
+---
 
+## ⚙️ Delete Folder
+If facing issue like after testing the system and want to delete the system folder but failed, try open `Task Manager` and search for `VBCSCompiler.exe`. End task for the exe file, then go to delete the folder again.
