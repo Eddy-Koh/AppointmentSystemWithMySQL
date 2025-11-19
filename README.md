@@ -54,7 +54,7 @@ Appointment
 - The end time must be after the start time.
 
 ### 4. Password reset via email OTP
-- Step 1: User provide thier username or email.
+- Step 1: User provide their username or email.
 - Step 2: OTP will send to the email.
 - Step 3: Provide the OTP for reset password.
 - Step 4: Provide the new password.
