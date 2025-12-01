@@ -1,5 +1,5 @@
 # Appointment Booking System
-This is a C# appointment booking system with features like user registration, role-based approval, appointment scheduling and password reset via email.
+This is a C# Web Application - appointment booking system with features like user registration, role-based approval, appointment scheduling and password reset via email.
 The system contain 2 types of user - Approver and Requester. Each user has its own accessibility as described in Section `Features`.
 
 ---
